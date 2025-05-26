@@ -1,0 +1,22 @@
+$secondary-color: var(--secondary-color);
+$primary-color:   var(--primary-color);
+$accent-color: var(--accent-color);
+$shadow-color: var(--shadow-color);
+
+
+input[type="text"] {
+ padding: 9px;
+ border: 1px solid $primary-color;
+ box-shadow: 0 2px 5px $shadow-color;
+ transition: border-color 0.3s, box-shadow 0.3s;
+ border-radius: 5px 0 0 5px;
+
+ &:focus{
+    border-color: $accent-color;
+    box-shadow: 0 4px 10px $shadow-color;
+    outline: none;
+ }
+}
+button {
+    border-radius: 0 5px 5px 0;
+}
