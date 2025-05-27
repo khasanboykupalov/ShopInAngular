@@ -1,4 +1,4 @@
-<div class="card">
+<a [routerLink]="['details', product.id]" class="card">
 
     <div>
         <div class="card-img">
@@ -12,4 +12,4 @@
         <p> {{product.price | currency }} </p>
         <p> {{product.category}} </p>
     </div>
-</div>
+</a>

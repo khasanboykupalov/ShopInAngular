@@ -1,0 +1,14 @@
+<article>
+    <section>
+        <h2> {{product?.title}} </h2>
+        <p> {{product?.description}} </p>
+        <div class="product-detalis">
+            <p> Price: {{product?.price | currency }} </p>
+            <p> Category: {{product?.category}} </p>
+        </div>
+    </section>
+
+    <div class="img-container">
+        <img [ngSrc]="product?.image!" [alt]="product?.title" fill>
+    </div>
+</article>

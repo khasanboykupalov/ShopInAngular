@@ -11,6 +11,8 @@
     transition: all 0.3s ease;
     cursor: pointer;
 
+    text-decoration: none;
+
     &:hover {
         box-shadow: 0 4px 10px var(--shadow-color);
         transform: translateY(-2px);

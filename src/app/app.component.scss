@@ -4,6 +4,11 @@ header {
     background-color: $secondary-color;
     padding: 20px;
     color: whitesmoke;
+    
+    a {
+        color: whitesmoke;
+        text-decoration: none
+    }
 }
 
 .container{

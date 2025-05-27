@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ShopComponent } from '../../components/shop/shop.component';
 import { ProductService } from '../../services/product.service';
+import { Product } from '../../Interfaces/product.interface';
 
 
 
@@ -14,7 +15,28 @@ import { ProductService } from '../../services/product.service';
 export class HomeComponent {
 
   productService = inject(ProductService)
+  productList:Product[] = []
+  filteredProducts:Product[]=[]
 
-  productss = this.productService.getProduct()
+  constructor( ) {
+    this.productList = this.productService.getProduct()
+    this.filteredProducts = this.productList
+  }
+
+  onSearch(searchTern: string) {
+    if(!searchTern) {
+      this.filteredProducts = this.productList;
+      return
+    }
+
+    this.filteredProducts = this.productList.filter((prod) => 
+      prod.title.toLowerCase().includes(searchTern.toLocaleLowerCase()) )
+  }
+
+
+  onInput(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.onSearch(input.value)
+  }
 
 }
