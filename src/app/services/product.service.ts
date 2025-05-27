@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Product } from "../Interfaces/product.interface";
 import data from '../../../db.json'
+import { promises } from "dns";
 
 
 @Injectable({
@@ -8,14 +9,17 @@ import data from '../../../db.json'
 })
 
 export class ProductService {
-    private products: Product[] = data;
+    private products: Product[] = data.products;
 
-    getProduct(): Product[] {
-        return this.products
+   async  getProduct(): Promise<Product[]> {
+    const response = await fetch('http://localhost:3000/products')
+    const data = await response.json();
+        return data
     }
 
-    getProductById(id:number): Product | undefined {
-        const product = this.products.find((product)=> product.id === id);
-        return product? product : undefined;  
+   async getProductById(id:number): Promise<Product | undefined>{
+       const response = await fetch(`http://localhost:3000/products/${id}`)
+       const data = await response.json()
+       return data
     }
 }

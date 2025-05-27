@@ -21,14 +21,14 @@ export class DetailComponent{
     product: Product | undefined
 
 
-    constructor ( ) {
+    constructor () {
         const productId = this.route.snapshot.params['id']
-        const producDetail = this.productService.getProductById(+productId)
-
-        if(producDetail) {
-            this.product = producDetail;
-        } else { 
-            this.router.navigate(['/'])          
+    this.productService.getProductById(+productId).then(data => {
+        if(data)  {
+            this.product = data;
+        } else{
+            this.router.navigate(['/', productId]);
         }
+    })
     }
 }

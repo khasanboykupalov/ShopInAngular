@@ -19,8 +19,11 @@ export class HomeComponent {
   filteredProducts:Product[]=[]
 
   constructor( ) {
-    this.productList = this.productService.getProduct()
-    this.filteredProducts = this.productList
+   this.productService.getProduct().then(data =>{ 
+    this.productList = data;
+    this.filteredProducts = data;
+  })
+    
   }
 
   onSearch(searchTern: string) {
