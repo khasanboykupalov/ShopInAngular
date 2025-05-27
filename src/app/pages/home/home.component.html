@@ -4,7 +4,12 @@
         <button type="button"> Search</button>
     </form>
 
-    <section class="shop">
-        <app-shop></app-shop>
+    <section class="product-list">
+
+        @for (product of productss; track product.id) {
+
+            <app-shop [product]="product" ></app-shop>
+        }
+
     </section>
 </section>

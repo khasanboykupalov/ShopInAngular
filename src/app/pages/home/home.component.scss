@@ -20,3 +20,10 @@ input[type="text"] {
 button {
     border-radius: 0 5px 5px 0;
 }
+
+.product-list {
+    display: grid;
+    gap: 11px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    margin-top: 22px;
+}
