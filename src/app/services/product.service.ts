@@ -9,7 +9,6 @@ import { promises } from "dns";
 })
 
 export class ProductService {
-    private products: Product[] = data.products;
 
    async  getProduct(): Promise<Product[]> {
     const response = await fetch('http://localhost:3000/products')
