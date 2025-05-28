@@ -6,6 +6,28 @@
             <p> Price: {{product?.price | currency }} </p>
             <p> Category: {{product?.category}} </p>
         </div>
+
+        <h3>Comments: </h3>
+
+        <ul>
+            @for ( comment of comments; track comment.id) {
+                <li> {{comment.comment }} </li>
+
+                <button (click)="onDelete(comment.id)"> Delete</button>
+            }
+            
+        </ul>
+
+        <form [formGroup]="commentForm" (ngSubmit)="onSubmit()" >
+            <div class="form-group">
+                <label for="comment"> Leave a Comment: </label>
+                <div>
+                    <textarea formControlName="commetn" name="comment" id="comment" rows="4" cols="50"></textarea>
+                </div>
+            </div>
+            <button type="submit">Submint</button>
+        </form>
+
     </section>
 
     <div class="img-container">
